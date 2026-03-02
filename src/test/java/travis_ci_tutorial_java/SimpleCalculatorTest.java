@@ -16,9 +16,20 @@ public class SimpleCalculatorTest {
 		assertEquals(calc.minus(5, 3), 2);
 	}
 	@Test
+	public void testnegativeMinus() {
+		SimpleCalculator calc = new SimpleCalculator();
+		assertEquals(calc.minus(3, 5), -2);
+	}
+
+	@Test
 	public void testMultiply() {
 		SimpleCalculator calc = new SimpleCalculator();
 		assertEquals(calc.multiply(5, 3), 15);
+	}
+	@Test
+	public void testnegativeMultiply() {
+		SimpleCalculator calc = new SimpleCalculator();
+		assertEquals(calc.multiply(5, -3), -15);
 	}
 
 	@Test
@@ -26,4 +37,10 @@ public class SimpleCalculatorTest {
 		SimpleCalculator calc = new SimpleCalculator();
 		assertEquals(calc.divide(5, 3), 2);
 	}
+
+	 @Test(expected = ArithmeticException.class)
+    public void testDivideByZero() {
+        SimpleCalculator calc = new SimpleCalculator();
+        calc.divide(10, 0);
+}
 }
